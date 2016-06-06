@@ -121,7 +121,7 @@ hi def link coffeeObjAssign Identifier
 syn keyword coffeeTodo TODO FIXME XXX contained
 hi def link coffeeTodo Todo
 
-syn match coffeeComment /#.*/ contains=@Spell,coffeeTodo
+syn match coffeeComment /#.*/ contains=@Spell,coffeeTodo,jsDocTags
 hi def link coffeeComment Comment
 
 syn region coffeeBlockComment start=/####\@!/ end=/###/
