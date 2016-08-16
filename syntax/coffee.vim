@@ -55,6 +55,10 @@ syn match coffeeExtendedOp /\%(\S\s*\)\@<=[+\-*/%&|\^=!<>?.,;]\{-1,}\|--\|++\|:/
 syn match coffeeExtendedOp /\<\%(and\|or\)=/ display
 hi def link coffeeExtendedOp coffeeOperator
 
+" This is separate from `coffeeExtendedOp` to help differentiate commas from
+" dots.
+syn match coffeeSpecialOp /[,;]/ display
+hi def link coffeeSpecialOp SpecialChar
 
 syn match coffeeBoolean /\<\%(true\|on\|yes\|false\|off\|no\)\>/ display
 hi def link coffeeBoolean Boolean
@@ -173,7 +177,7 @@ syn region coffeeHeregex start=#///# end=#///[gimy]\{,4}#
 syn region coffeeHeregexCharSet start=/\[/ end=/]/ contained
 \                               contains=@coffeeInterpString
 hi def link coffeeHeregex coffeeRegex
-hi def link coffeeHeregexCharSet StringDelimiter
+hi def link coffeeHeregexCharSet coffeeHeregex
 
 " Heredoc strings
 syn region coffeeHeredoc start=/"""/ end=/"""/ contains=@coffeeInterpString
